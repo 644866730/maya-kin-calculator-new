@@ -7,8 +7,8 @@
 }
 
 :root {
-    --img-size: 90px;
-    --main-img-size: 120px;
+    --img-size: 70px;
+    --main-img-size: 95px;
     --primary-color: #8b4513;
     --secondary-color: #d4a574;
     --accent-color: #f4e4c1;
@@ -25,6 +25,8 @@ body {
     padding-bottom: 70px;
     animation: fadeIn 0.5s ease-in-out;
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 @keyframes fadeIn {
@@ -37,29 +39,30 @@ body {
 }
 
 .container {
-    max-width: 480px;
+    max-width: 100vw;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
     width: 100%;
 }
 
 h1 {
     text-align: center;
     color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-size: 1rem;
     font-weight: 500;
     text-shadow: 1px 1px 3px rgba(133, 6, 187, 0.1);
     font-family: "Georgia", "Times New Roman", "KaiTi", "楷体", serif;
-    line-height: 1.6;
+    line-height: 1.5;
     font-style: italic;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    padding: 0 5px;
 }
 
 h2 {
     color: var(--primary-color);
-    margin-bottom: 12px;
-    font-size: 1.0rem;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
@@ -98,10 +101,10 @@ h2 {
 .input-section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 12px;
+    margin-bottom: 12px;
     border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
@@ -125,16 +128,16 @@ h2 {
 label {
     font-weight: 600;
     color: var(--primary-color);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-align: center;
     width: 100%;
 }
 
 select {
-    padding: 8px 6px;
+    padding: 6px 4px;
     border: 2px solid var(--secondary-color);
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 13px;
     width: 100%;
     background: white;
     transition: all 0.3s ease;
@@ -151,14 +154,14 @@ button {
     background: linear-gradient(135deg, var(--primary-color) 0%, #6b3305 100%);
     color: white;
     border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 12px;
     box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
     display: block;
 }
@@ -177,10 +180,10 @@ button:active {
     display: none;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 20px 15px;
-    margin-bottom: 20px;
+    padding: 12px 10px;
+    margin-bottom: 12px;
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.8);
     animation: slideIn 0.4s ease-out;
@@ -206,15 +209,15 @@ button:active {
         "push"
         "desc"
         "additional";
-    gap: 12px;
+    gap: 8px;
     justify-items: center;
-    margin-top: 12px;
+    margin-top: 8px;
     width: 100%;
 }
 
 .seal.guide {
     grid-area: guide;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -222,14 +225,14 @@ button:active {
     grid-area: middle;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 6px;
     width: 100%;
     align-items: center;
 }
 
 .seal.push {
     grid-area: push;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -244,46 +247,46 @@ button:active {
 /* 主印记描述区域样式 */
 .description-section {
     width: 100%;
-    margin: 15px auto 0;
-    padding: 16px;
+    margin: 10px auto 0;
+    padding: 10px;
     background: linear-gradient(135deg, #fff9e6 0%, #ffe8cc 100%);
-    border-radius: 12px;
-    border-left: 4px solid #ffd700;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    border-left: 3px solid #ffd700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: none;
 }
 
 .description-section h3 {
     color: var(--primary-color);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
 }
 
 .kin-desc-container {
-    padding: 12px;
+    padding: 8px;
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .kin-desc {
-    line-height: 1.8;
+    line-height: 1.6;
     color: var(--text-color);
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
-    padding: 8px;
+    padding: 6px;
 }
 
 /* 底部附加信息样式 - 1x4 横向布局 */
 .additional-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 8px;
+    gap: 5px;
     width: 100%;
-    margin-top: 15px;
-    padding-top: 15px;
+    margin-top: 10px;
+    padding-top: 10px;
     border-top: 2px dashed rgba(139, 69, 19, 0.2);
 }
 
@@ -292,8 +295,8 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 4px;
-    border-radius: 10px;
+    padding: 6px 3px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     width: 100%;
     text-align: center;
@@ -309,31 +312,32 @@ button:active {
 
 /* 底部附加信息区域的图腾样式 - 更小更紧凑 */
 .additional-info .seal {
-    padding: 6px 3px;
+    padding: 4px 2px;
 }
 
 .additional-info .seal img {
-    width: 56px;
-    height: 56px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
-    border-radius: 8px;
-    padding: 3px;
+    border-radius: 6px;
+    padding: 2px;
     background: #fff;
-    border: 2px solid rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     box-sizing: border-box;
 }
 
 .additional-info .seal-name {
-    font-size: 0.7rem;
-    min-height: 28px;
-    margin-bottom: 4px;
+    font-size: 0.65rem;
+    min-height: 24px;
+    margin-bottom: 3px;
+    line-height: 1.2;
 }
 
 .additional-info .kin-info,
 .additional-info .wave-info {
-    font-size: 0.7rem;
-    margin-top: 4px;
+    font-size: 0.65rem;
+    margin-top: 3px;
 }
 
 .seal:hover {
@@ -389,14 +393,15 @@ button:active {
 
 .seal-name {
     font-weight: 600;
-    margin-bottom: 8px;
-    min-height: 36px;
+    margin-bottom: 6px;
+    min-height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-align: center;
     color: var(--primary-color);
+    line-height: 1.2;
 }
 
 .seal img {
@@ -417,16 +422,16 @@ button:active {
 
 .kin-info {
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 6px;
     color: var(--primary-color);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 .wave-info {
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 6px;
     color: #9c27b0;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 /* 触摸设备特定样式 */
