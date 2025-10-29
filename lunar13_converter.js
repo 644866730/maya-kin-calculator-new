@@ -24,42 +24,15 @@ const LUNAR_MONTH_NAMES = [
 const DAY_OUT_OF_TIME = { month: 7, day: 25 };
 
 /**
- * 判断是否为闰年
- */
-function isLeapYear(year) {
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}
-
-/**
- * 计算两个日期之间的闰日数
- */
-function countLeapDays(startDate, endDate) {
-    if (endDate <= startDate) {
-        return 0;
-    }
-    
-    let count = 0;
-    for (let year = startDate.getFullYear(); year <= endDate.getFullYear(); year++) {
-        if (!isLeapYear(year)) {
-            continue;
-        }
-        const feb29 = new Date(year, 1, 29); // 2月29日
-        if (startDate < feb29 && feb29 <= endDate) {
-            count++;
-        }
-    }
-    return count;
-}
-
-/**
  * 将公历日期转换为 13 月亮历
- * @param {Date} gregorianDate - 公历日期
+ * 13月亮历与年份无关，只与月份和日期相关
+ * 周期从7月26日开始，到次年7月24日结束（共364天）
+ * 7月25日为"无时间日"
+ * @param {number} month - 月份 (1-12)
+ * @param {number} day - 日期 (1-31)
  * @returns {Object} { isKinDay: boolean, month: number, day: number, lunarDateShort: string }
  */
-function convertGregorianToLunar13(gregorianDate) {
-    const month = gregorianDate.getMonth() + 1; // JavaScript 的 getMonth() 返回 0-11
-    const day = gregorianDate.getDate();
-    
+function convertGregorianToLunar13(month, day) {
     // 检查是否为无时间日 (7月25日)
     if (month === 7 && day === 25) {
         return {
@@ -70,26 +43,50 @@ function convertGregorianToLunar13(gregorianDate) {
             monthName: "无时间日"
         };
     }
-    
-    // 13月亮历周期从7月26日开始
-    let cycleStart = new Date(gregorianDate.getFullYear(), 6, 26); // 7月26日
-    if (gregorianDate < cycleStart) {
-        cycleStart = new Date(gregorianDate.getFullYear() - 1, 6, 26);
+
+    // 定义每个月的天数（非闰年）
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // 计算从7月26日开始的偏移天数
+    let offset = 0;
+
+    if (month >= 7 && (month > 7 || day >= 26)) {
+        // 7月26日到12月31日
+        if (month === 7) {
+            offset = day - 26;
+        } else {
+            // 先加上7月26日到7月31日的天数（6天）
+            offset = 31 - 26 + 1;
+            // 加上8月到当前月份前一个月的天数
+            for (let m = 8; m < month; m++) {
+                offset += daysInMonth[m - 1];
+            }
+            // 加上当前月份的天数
+            offset += day - 1;
+        }
+    } else {
+        // 1月1日到7月24日
+        // 先加上7月26日到12月31日的天数
+        offset = 31 - 26 + 1; // 7月剩余天数
+        offset += 31 + 30 + 31 + 30 + 31; // 8月到12月
+
+        // 加上1月到当前月份前一个月的天数
+        for (let m = 1; m < month; m++) {
+            offset += daysInMonth[m - 1];
+        }
+        // 加上当前月份的天数
+        offset += day - 1;
     }
-    
-    // 计算偏移天数
-    let offset = Math.floor((gregorianDate - cycleStart) / (1000 * 60 * 60 * 24));
-    offset -= countLeapDays(cycleStart, gregorianDate);
-    
+
     if (offset < 0 || offset >= 364) {
         throw new Error("日期超出 13 月亮历的有效范围");
     }
-    
+
     const lunarMonth = Math.floor(offset / 28) + 1;
     const lunarDay = (offset % 28) + 1;
     const lunarDateShort = `${lunarMonth}.${lunarDay}`;
     const monthName = LUNAR_MONTH_NAMES[lunarMonth - 1];
-    
+
     return {
         isKinDay: false,
         month: lunarMonth,
@@ -114,21 +111,20 @@ function getPSI(lunarDateShort) {
 
 /**
  * 根据公历日期获取完整的 13 月亮历信息
- * @param {number} year - 年份
+ * @param {number} year - 年份（保留参数以兼容旧代码，但不使用）
  * @param {number} month - 月份 (1-12)
  * @param {number} day - 日期 (1-31)
  * @returns {Object} { lunarMonth, lunarDay, lunarDateShort, psi, monthName, isKinDay }
  */
 function getLunar13Info(year, month, day) {
     try {
-        const gregorianDate = new Date(year, month - 1, day);
-        const lunarInfo = convertGregorianToLunar13(gregorianDate);
-        
+        const lunarInfo = convertGregorianToLunar13(month, day);
+
         let psi = '无时间日当天没有对应的 PSI';
         if (!lunarInfo.isKinDay) {
             psi = getPSI(lunarInfo.lunarDateShort);
         }
-        
+
         return {
             lunarMonth: lunarInfo.month,
             lunarDay: lunarInfo.day,

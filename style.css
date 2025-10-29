@@ -9,22 +9,28 @@
 :root {
     --img-size: 70px;
     --main-img-size: 95px;
-    --primary-color: #8b4513;
-    --secondary-color: #d4a574;
-    --accent-color: #f4e4c1;
+    --primary-color: #7b1fa2; /* 深紫 */
+    --secondary-color: #b388ff; /* 淡紫 */
+    --accent-color: #ede7f6; /* 柔和紫 */
     --text-color: #333;
-    --bg-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+    --bg-overlay-alpha: 0.62; /* 背景图覆盖层透明度（0~1，越大越暗）*/
+    --bg-gradient: linear-gradient(135deg, #2b1055 0%, #120a3a 100%);
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 body {
-    background: var(--bg-gradient);
+    background-image: linear-gradient(120deg, rgba(91,33,182,var(--bg-overlay-alpha)), rgba(30,27,75,var(--bg-overlay-alpha))), url('seal/index.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-blend-mode: overlay;
     color: var(--text-color);
     line-height: 1.6;
     padding-bottom: 70px;
     animation: fadeIn 0.5s ease-in-out;
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     width: 100vw;
 }
@@ -78,34 +84,35 @@ h2 {
 
 .status-message.info {
     display: block;
-    background-color: #e6f7ff;
-    border: 1px solid #91d5ff;
-    color: #1890ff;
+    background: linear-gradient(135deg, rgba(123,31,162,0.14), rgba(103,58,183,0.10));
+    border: none;
+    color: #6a1b9a;
 }
 
 .status-message.error {
     display: block;
-    background-color: #fff2f0;
-    border: 1px solid #ffccc7;
-    color: #ff4d4f;
+    background: linear-gradient(135deg, rgba(194,24,91,0.14), rgba(123,31,162,0.10));
+    border: none;
+    color: #ad1457;
 }
 
 .status-message.success {
     display: block;
-    background-color: #f6ffed;
-    border: 1px solid #b7eb8f;
-    color: #52c41a;
+    background: linear-gradient(135deg, rgba(46,125,50,0.14), rgba(103,58,183,0.08));
+    border: none;
+    color: #2e7d32;
 }
 
 /* 输入区域样式 */
 .input-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(135deg, rgba(255,255,255,0.28), rgba(255,255,255,0.10));
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
-    box-shadow: var(--card-shadow);
+    box-shadow: none;
     padding: 12px;
     margin-bottom: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: none;
 }
 
 .date-input {
@@ -135,14 +142,16 @@ label {
 
 select {
     padding: 6px 4px;
-    border: 2px solid var(--secondary-color);
+    border: none;
     border-radius: 6px;
     font-size: 13px;
     width: 100%;
-    background: white;
+    background: linear-gradient(135deg, rgba(255,255,255,0.28), rgba(255,255,255,0.10));
     transition: all 0.3s ease;
     outline: none;
     text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 select:focus {
@@ -151,7 +160,7 @@ select:focus {
 }
 
 button {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #6b3305 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4a148c 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -162,7 +171,7 @@ button {
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 12px;
-    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+    box-shadow: 0 4px 10px rgba(74, 20, 140, 0.3);
     display: block;
 }
 
@@ -178,14 +187,15 @@ button:active {
 /* 结果区域样式 */
 .result-section {
     display: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(135deg, rgba(255,255,255,0.26), rgba(255,255,255,0.10));
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
-    box-shadow: var(--card-shadow);
+    box-shadow: none;
     padding: 12px 10px;
     margin-bottom: 12px;
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: none;
     animation: slideIn 0.4s ease-out;
 }
 
@@ -249,10 +259,12 @@ button:active {
     width: 100%;
     margin: 10px auto 0;
     padding: 10px;
-    background: linear-gradient(135deg, #fff9e6 0%, #ffe8cc 100%);
+    background: linear-gradient(135deg, rgba(123,31,162,0.12) 0%, rgba(103,58,183,0.08) 100%);
     border-radius: 10px;
-    border-left: 3px solid #ffd700;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: none;
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: none;
 }
 
@@ -279,7 +291,7 @@ button:active {
     padding: 6px;
 }
 
-/* 底部附加信息样式 - 1x4 横向布局 */
+/* 底部附加信息样式 - 1x4 横向布局（去分隔线） */
 .additional-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -287,10 +299,10 @@ button:active {
     width: 100%;
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 2px dashed rgba(139, 69, 19, 0.2);
+    border-top: none;
 }
 
-/* 各个图腾区域样式 */
+/* 各个图腾区域样式 - 去矩形框，改为晕开渐变 */
 .seal {
     display: flex;
     flex-direction: column;
@@ -300,8 +312,10 @@ button:active {
     transition: all 0.3s ease;
     width: 100%;
     text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(139, 69, 19, 0.1);
+    background: radial-gradient(120% 150% at 50% 20%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 60%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
 }
 
 .seal:hover {
@@ -320,10 +334,10 @@ button:active {
     height: 45px;
     object-fit: contain;
     border-radius: 6px;
-    padding: 2px;
-    background: #fff;
-    border: 1.5px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     box-sizing: border-box;
 }
 
@@ -345,50 +359,22 @@ button:active {
 }
 
 .main {
-    border: 2px solid #ffd700;
-    background: linear-gradient(135deg, #fcf8e3 0%, #fff9e6 100%);
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    border: none;
+    background: radial-gradient(120% 150% at 50% 20%, rgba(123,31,162,0.16) 0%, rgba(103,58,183,0.08) 100%);
+    padding: 12px;
+    box-shadow: none;
 }
 
-.guide {
-    border: 2px solid #4682b4;
-    background: linear-gradient(135deg, #e6f7ff 0%, #d6efff 100%);
-}
-
-.challenge {
-    border: 2px solid #d9534f;
-    background: linear-gradient(135deg, #ffebee 0%, #ffd6d6 100%);
-}
-
-.support {
-    border: 2px solid #5cb85c;
-    background: linear-gradient(135deg, #e8f5e9 0%, #d4f1d4 100%);
-}
-
-.push {
-    border: 2px solid #f0ad4e;
-    background: linear-gradient(135deg, #fff8e1 0%, #ffe8b3 100%);
-}
-
-.wave {
-    border: 2px solid #9c27b0;
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-}
-
-.goddess {
-    border: 2px solid #e91e63;
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
-}
-
-.psi {
-    border: 2px solid #00bcd4;
-    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-}
-
+.guide,
+.challenge,
+.support,
+.push,
+.wave,
+.goddess,
+.psi,
 .equivalent {
-    border: 2px solid #ff9800;
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: none;
+    background: radial-gradient(120% 150% at 50% 20%, rgba(123,31,162,0.12) 0%, rgba(103,58,183,0.06) 100%);
 }
 
 .seal-name {
@@ -408,11 +394,11 @@ button:active {
     width: var(--img-size);
     height: var(--img-size);
     object-fit: contain;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    padding: 4px;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .seal.main img {
