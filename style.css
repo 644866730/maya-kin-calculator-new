@@ -7,8 +7,8 @@
 }
 
 :root {
-    --img-max-height: 90px;
-    --main-img-max-height: 120px;
+    --img-size: 90px;
+    --main-img-size: 120px;
     --primary-color: #8b4513;
     --secondary-color: #d4a574;
     --accent-color: #f4e4c1;
@@ -47,15 +47,19 @@ h1 {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 20px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(133, 6, 187, 0.1);
+    font-family: "Georgia", "Times New Roman", "KaiTi", "楷体", serif;
+    line-height: 1.6;
+    font-style: italic;
+    letter-spacing: 0.5px;
 }
 
 h2 {
     color: var(--primary-color);
     margin-bottom: 12px;
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     font-weight: 600;
 }
 
@@ -309,9 +313,15 @@ button:active {
 }
 
 .additional-info .seal img {
-    max-height: 50px !important;
-    border-radius: 6px;
-    padding: 2px;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 3px;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
 }
 
 .additional-info .seal-name {
@@ -390,9 +400,8 @@ button:active {
 }
 
 .seal img {
-    max-width: 100%;
-    height: auto;
-    max-height: var(--img-max-height);
+    width: var(--img-size);
+    height: var(--img-size);
     object-fit: contain;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.8);
@@ -402,7 +411,8 @@ button:active {
 }
 
 .seal.main img {
-    max-height: var(--main-img-max-height);
+    width: var(--main-img-size);
+    height: var(--main-img-size);
 }
 
 .kin-info {
