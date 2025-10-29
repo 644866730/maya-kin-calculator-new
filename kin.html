@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#8b4513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>对等Kin查询 - 玛雅天赋印记</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 1em;
+        }
+        
+        .back-button:hover {
+            background-color: #a0522d;
+        }
+        
+        .back-button::before {
+            content: "←";
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        
+        .container {
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        .kin-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .step-content {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .kin-image {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .example {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid gold;
+            margin-top: 20px;
+        }
+        
+        .sub-step {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .calculation {
+            font-weight: bold;
+            color: #8b4513;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="more.html" class="back-button">返回</a>
+        <h1>对等Kin查询</h1>
+        
+        <div class="kin-content">
+            <div class="step">
+                <div class="step-title">对等印记计算准备</div>
+                <div class="step-content">
+                    <p><strong>A：要用到两张历法表</strong></p>
+                    <p>卓尔金历 十三月亮历</p>
+                    <p><strong>B：四张矩阵</strong></p>
+                    <p>日历矩阵 时间矩阵 空间矩阵 共时矩阵</p>
+                    <p>总的来说就是从这六张图表中得出三个数字，然后把这三个数字相加的总和就是对等印记。</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">第一个数字查询</div>
+                <div class="step-content">
+                    <p>拿2025年4月19 （KIN26宇宙的白世界桥）来举例，4月19号对应的13月亮历是第10个月亮第16天，也就是10.16。</p>
+                    <img src="images/moon.jpg" alt="13月亮历表" class="kin-image">
+                    <p>🌸接着从日历矩阵中找到10.16 对应坐标是：V20 H4</p>
+                    <img src="images/calendar.jpg" alt="日历矩阵" class="kin-image">
+                    <p>🌸 然后从空间、时间、共时三个矩阵图中找到坐标V20 H4对应的数字并相加。</p>
+                    <div class="sub-step">
+                        <img src="images/space.jpg" alt="空间矩阵" class="kin-image">
+                        <img src="images/time.jpg" alt="时间矩阵" class="kin-image">
+                        <img src="images/synchronic.jpg" alt="共时矩阵" class="kin-image">
+                        <div class="calculation">空间68 + 时间18 + 共时81 = 167（这就是1号数字）</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">第二个数字查询</div>
+                <div class="step-content">
+                    <p>🌸在空间矩阵中找到本我图腾KIN值坐标，KIN26 对应的坐标：V5H7。然后从时间和共时两个矩阵中找到坐标对应的数字相加。</p>
+                    <div class="sub-step">
+                        <div class="calculation">空间26 + 时间34 + 共时7 = 67（2号数字）</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">第三个数字查询</div>
+                <div class="step-content">
+                    <p>🌍在共时矩阵中找到本我图腾KIN值坐标，KIN26对应的坐标：V6H6。然后从空间和时间两个矩阵中找到坐标对应的数字相加</p>
+                    <div class="sub-step">
+                        <div class="calculation">共时26 + 空间43 + 时间32 = 101（3号数字）</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">得出对等kin</div>
+                <div class="step-content">
+                    <p>🌍将3个数字相加，总和大于260，就减去260，直到小于260为止：167+67+101=335-260=75</p>
+                    <p>KIN75根据卓尔金历表查询，对应行星的蓝鹰。</p>
+                    <img src="images/kin.jpg" alt="卓尔金历表" class="kin-image">
+                    <div class="example">
+                        所以，KIN26宇宙的白桥 对等印记 KIN75行星的蓝鹰
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="nav-icon">🔍</i>
+            <span>查询</span>
+        </a>
+        <a href="more.html" class="nav-item">
+            <i class="nav-icon">📚</i>
+            <span>更多</span>
+        </a>
+        <a href="contact.html" class="nav-item">
+            <i class="nav-icon">📞</i>
+            <span>联系我</span>
+        </a>
+    </div>
+    
+    <script>
+        // 简单的页面切换效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

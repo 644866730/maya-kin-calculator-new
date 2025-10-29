@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#8b4513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Psi查询 - 玛雅天赋印记</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 1em;
+        }
+        
+        .back-button:hover {
+            background-color: #a0522d;
+        }
+        
+        .back-button::before {
+            content: "←";
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        
+        .container {
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        .psi-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .step-content {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .psi-image {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .example {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid gold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="more.html" class="back-button">返回</a>
+        <h1>Psi查询</h1>
+        
+        <div class="psi-content">
+            <div class="step">
+                <div class="step-title">第一步</div>
+                <div class="step-content">
+                    从13月亮历表中找到自己公历生日对应的13月亮历生日，比如公历是1月1日，对应的13月亮历生日是韵律之月第20天, 也就是13月亮历的6月20日。
+                </div>
+                <img src="images/moon.jpg" alt="13月亮历表" class="psi-image">
+            </div>
+            
+            <div class="step">
+                <div class="step-title">第二步</div>
+                <div class="step-content">
+                    到Psi Bank表格中，查到你13月亮历生日对应的星系印记。比如在上述例子中享就是找到6月20日对应的是电力黄太阳。
+                </div>
+                <img src="images/psibank.jpg" alt="Psi Bank表格" class="psi-image">
+            </div>
+            
+            <div class="example">
+                所以公历1月1日出生的人，Psi都是电力黄太阳。
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="nav-icon">🔍</i>
+            <span>查询</span>
+        </a>
+        <a href="more.html" class="nav-item">
+            <i class="nav-icon">📚</i>
+            <span>更多</span>
+        </a>
+        <a href="contact.html" class="nav-item">
+            <i class="nav-icon">📞</i>
+            <span>联系我</span>
+        </a>
+    </div>
+    
+    <script>
+        // 简单的页面切换效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

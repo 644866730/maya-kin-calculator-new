@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#8b4513">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>联系我 - 玛雅天赋印记</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feedback-section {
+            border-left: 5px solid #8b4513;
+        }
+        
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .qr-code-img {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .qr-code-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .qr-code-tip {
+            margin-top: 15px;
+            color: #666;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-section {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .contact-item {
+                flex: 1;
+                min-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>九尾羿风 星光皈航</h1>
+        
+        <div class="page-content">
+            <div class="contact-section">
+                <div class="contact-item">
+                    <h2>定制解读属于你自己的天赋（天赋解读师）</h2>
+                    <div class="placeholder-content">
+                        <img src="images/wx_1.jpg" alt="天赋解读师微信二维码" class="qr-code-img">
+                        <p class="qr-code-tip">扫描二维码添加微信，属于你自己的天赋解读</p>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item feedback-section">
+                    <h2>问题反馈（网页开发工程师）</h2>
+                    <div class="qr-code-container">
+                        <img src="images/wx_2.jpg" alt="开发工程师微信二维码" class="qr-code-img">
+                        <p class="qr-code-tip">扫描二维码添加微信，进行网页功能问题反馈</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="nav-icon">🔍</i>
+            <span>查询</span>
+        </a>
+        <a href="more.html" class="nav-item">
+            <i class="nav-icon">📚</i>
+            <span>更多</span>
+        </a>
+        <a href="contact.html" class="nav-item active">
+            <i class="nav-icon">📞</i>
+            <span>联系我</span>
+        </a>
+    </div>
+    
+    <script>
+        // 简单的页面切换效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
