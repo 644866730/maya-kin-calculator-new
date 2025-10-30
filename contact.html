@@ -58,6 +58,15 @@
             font-size: 14px;
         }
         
+        body.contact-page {
+            background-image: none;
+            background: linear-gradient(135deg, rgba(247, 243, 255, 1) 0%, rgba(231, 223, 255, 1) 100%);
+        }
+        
+        .nav-icon.phone-icon {
+            color: #7b1fa2;
+        }
+        
         @media (min-width: 768px) {
             .contact-section {
                 flex-direction: row;
@@ -71,7 +80,7 @@
         }
     </style>
 </head>
-<body>
+<body class="contact-page">
     <div class="container">
         <h1>九尾羿风 星光皈航</h1>
         
@@ -103,12 +112,8 @@
             <i class="nav-icon">🔍</i>
             <span>查询</span>
         </a>
-        <a href="more.html" class="nav-item">
-            <i class="nav-icon">📚</i>
-            <span>更多</span>
-        </a>
         <a href="contact.html" class="nav-item active">
-            <i class="nav-icon">📞</i>
+            <i class="nav-icon phone-icon">📞</i>
             <span>联系我</span>
         </a>
     </div>
